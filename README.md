@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/gerwld/igplus-extension/8765ded5cef43659500cef369b9bfdc6b81d0b70/assets/img/logo.svg" width="76" height="76"/>
+  <img src="https://raw.githubusercontent.com/ptjaworski/igplus-extension/8765ded5cef43659500cef369b9bfdc6b81d0b70/assets/img/logo.svg" width="76" height="76"/>
 </div>
 
 <h1 align="center">IGPlus Extension</h1> 
@@ -33,7 +33,7 @@
 
 IGPlus is available on the [Google Chrome Store](https://chrome.google.com/webstore/detail/igplus-remove-instagram-s/dbbopjndlaginbghfoibbndhlbpdpapd), [Firefox Web Store](https://addons.mozilla.org/en-US/firefox/addon/igplus-extension/) and [Microsoft Edge Store](https://chromewebstore.google.com/detail/igplus-remove-instagram-r/dbbopjndlaginbghfoibbndhlbpdpapd). Visit the store page and click on the "Add" button to install the extension directly to your browser.
 
-You can also download the latest version of IGPlus Extension from the [Releases](https://github.com/gerwld/igplus-extension/releases) page. Choose the appropriate version for your operating system and follow the installation instructions provided.
+You can also download the latest version of IGPlus Extension from the [Releases](https://github.com/ptjaworski/igplus-extension/releases) page. Choose the appropriate version for your operating system and follow the installation instructions provided.
 
 <br>
 
@@ -42,7 +42,7 @@ You can also download the latest version of IGPlus Extension from the [Releases]
 Once the extension is installed, follow these steps:
 
 1. **Activation:** Open Instagram in your browser.
-2. **Extension Access:** Click on the IGPlus icon (<img src="https://raw.githubusercontent.com/gerwld/igplus-extension/8765ded5cef43659500cef369b9bfdc6b81d0b70/assets/img/logo.svg" width="18" height="18"/>) in the browser toolbar (<img src="https://github.com/user-attachments/assets/8e11b0ed-4513-4809-b6d1-ab88d0f98d80" width="20" height="20"/>) to activate it.
+2. **Extension Access:** Click on the IGPlus icon (<img src="https://raw.githubusercontent.com/ptjaworski/igplus-extension/8765ded5cef43659500cef369b9bfdc6b81d0b70/assets/img/logo.svg" width="18" height="18"/>) in the browser toolbar (<img src="https://github.com/user-attachments/assets/8e11b0ed-4513-4809-b6d1-ab88d0f98d80" width="20" height="20"/>) to activate it.
 3. **Customization:** The extension settings panel will open, allowing you to customize your Instagram experience to your preferences.
 
 
@@ -54,7 +54,7 @@ Once the extension is installed, follow these steps:
 Contributions are welcome! Here's a list of things you can do to help us out:
 
 -   Provide feedback (positive and negative!) on how you use IGPlus
--   Suggest [new features or improvements](https://github.com/gerwld/igplus-extension/issues) of the existing ones
+-   Suggest [new features or improvements](https://github.com/ptjaworski/igplus-extension/issues) of the existing ones
 -   [Translate](/src/_locales) to a new language, or complete an existing one
 
 <h1> </h1>
@@ -71,7 +71,7 @@ You can replace `pnpm` by `npm run`
 Clone this repository
 
 ```bash
-git clone https://github.com/gerwld/igplus-extension
+git clone https://github.com/ptjaworski/igplus-extension
 cd igplus-extension
 ```
 
@@ -113,8 +113,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ApatheticToSocialMedia"><img src="https://avatars.githubusercontent.com/u/194858144?v=4?s=100" width="100px;" alt="ApatheticTo SocialMedia"/><br /><sub><b>ApatheticTo SocialMedia</b></sub></a><br /><a href="https://github.com/gerwld/igplus-extension/issues?q=author%3AApatheticToSocialMedia" title="Bug reports">🐛</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="http://www.hkumar.me"><img src="https://avatars.githubusercontent.com/u/11796657?v=4?s=100" width="100px;" alt="Harsh Kumar"/><br /><sub><b>Harsh Kumar</b></sub></a><br /><a href="https://github.com/gerwld/igplus-extension/issues?q=author%3Ahkumar1993" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ApatheticToSocialMedia"><img src="https://avatars.githubusercontent.com/u/194858144?v=4?s=100" width="100px;" alt="ApatheticTo SocialMedia"/><br /><sub><b>ApatheticTo SocialMedia</b></sub></a><br /><a href="https://github.com/ptjaworski/igplus-extension/issues?q=author%3AApatheticToSocialMedia" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.hkumar.me"><img src="https://avatars.githubusercontent.com/u/11796657?v=4?s=100" width="100px;" alt="Harsh Kumar"/><br /><sub><b>Harsh Kumar</b></sub></a><br /><a href="https://github.com/ptjaworski/igplus-extension/issues?q=author%3Ahkumar1993" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
@@ -126,9 +126,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <h3>Translations contributions</h3>
 
-- **🌎 English translation (improvements)** · [Adam Jablonski](https://github.com/gerwld/igplus-extension/tree/main/src/_locales/en)
-- **🇩🇪 German translation** · [dubstebowl](https://github.com/gerwld/igplus-extension/tree/main/src/_locales/de)
-- **🇺🇦 Ukrainian translation** · [@kolobochok33](https://github.com/gerwld/igplus-extension/tree/main/src/_locales/uk) 
+- **🌎 English translation (improvements)** · [Adam Jablonski](https://github.com/ptjaworski/igplus-extension/tree/main/src/_locales/en)
+- **🇩🇪 German translation** · [dubstebowl](https://github.com/ptjaworski/igplus-extension/tree/main/src/_locales/de)
+- **🇺🇦 Ukrainian translation** · [@kolobochok33](https://github.com/ptjaworski/igplus-extension/tree/main/src/_locales/uk) 
 
 <br>
 

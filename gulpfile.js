@@ -1,5 +1,5 @@
 //   - This file is part of IGPlus Extension
-//  <https://github.com/gerwld/IGPlus-extension/blob/main/README.md>,
+//  <https://github.com/ptjaworski/IGPlus-extension/blob/main/README.md>,
 //   - Copyright (C) 2023-present IGPlus Extension
 //   -
 //   - IGPlus Extension is a software: you can redistribute it, and you are allowed to modify it (for contribution purposes) under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License.
@@ -33,9 +33,9 @@ import chalk from 'chalk';
 let { src, dest, task, series } = gulp;
 const link = chalk.hex('#5e98d9');
 const EXTENSION_NAME = 'igplus'
-const EXTENSION_V = 'v.3.0.5.1'
+const EXTENSION_V = 'v.3.0.5.3'
 const COPYRIGHT = `//   - This file is part of IGPlus Extension
-//  <https://github.com/gerwld/IGPlus-extension/blob/main/README.md>,
+//  <https://github.com/ptjaworski/IGPlus-extension/blob/main/README.md>,
 //   - Copyright (C) 2023-present IGPlus Extension
 //   -
 //   - IGPlus Extension is a software: you can redistribute it, and you are allowed to modify it (for contribution purposes) under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License.

@@ -1,5 +1,5 @@
 //   - This file is part of IGPlus Extension
-//  <https://github.com/gerwld/IGPlus-extension/blob/main/README.md>,
+//  <https://github.com/ptjaworski/IGPlus-extension/blob/main/README.md>,
 //   - Copyright (C) 2023-present IGPlus Extension
 //   -
 //   - IGPlus Extension is a software: you can redistribute and modify (for contribution purposes) under the terms of the Creative Commons 
