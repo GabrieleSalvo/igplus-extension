@@ -119,15 +119,17 @@
       else clearInterval(interval1);
     }
 
-    function toggleExplore(state) {
+    function toggleExplore(state, isRcDisabled) {
       clearInterval(interval2);
       setOrRemoveStylesOfItem("/assets/graphs/disable_explore.css", state, "disable_explore");
       
       function redirect() {
         if (window.innerWidth < 768) return;
         if (state && window.location.href.includes("/explore")) {
-          if (window.location?.assign) window.location.assign("/");
-          else window.location.href = "/";
+          let redirectPath = isRcDisabled ? "/?variant=following" : "/";
+
+          if (window.location?.assign) window.location.assign(redirectPath);
+          else window.location.href = redirectPath;
           console.log("IGPlus: Redirect");
           clearInterval(interval2);
         }
@@ -136,13 +138,15 @@
       else clearInterval(interval2);
     }
 
-    function toggleReels(state) {
+    function toggleReels(state, isRcDisabled) {
       clearInterval(interval3);
       setOrRemoveStylesOfItem("/assets/graphs/disable_reels.css", state, "disable_reels");
       function redirect() {
         if (state && window.location.href.includes("/reels")) {
-          if (window.location?.assign) window.location.assign("/");
-          else window.location.href = "/";
+          let redirectPath = isRcDisabled ? "/?variant=following" : "/";
+
+          if (window.location?.assign) window.location.assign(redirectPath);
+          else window.location.href = redirectPath;
           console.log("IGPlus: Redirect");
           clearInterval(interval3);
         }
@@ -153,7 +157,6 @@
     }
 
     function disableStories(ev_disable_stories, mp_disable_stories) {
-      console.log(ev_disable_stories, mp_disable_stories)
       clearInterval(interval4);
       setOrRemoveStylesOfItem("/assets/graphs/ev_disable_stories.css", ev_disable_stories, "ev_disable_stories");
       setOrRemoveStylesOfItem("/assets/graphs/mp_disable_stories.css", mp_disable_stories, "mp_disable_stories");
@@ -288,8 +291,8 @@
 
         toggleClassicMode("/assets/graphs/classic_mode.css", state.classic_mode);
         toggleVanity(state.disable_vanity);
-        toggleExplore(state.disable_explore);
-        toggleReels(state.disable_reels);
+        toggleExplore(state.disable_explore, state.mp_disable_recs);
+        toggleReels(state.disable_reels, state.mp_disable_recs);
         disableVideos(state.block_videos);
         disableStories(state.ev_disable_stories, state.mp_disable_stories);
         !state.nav_to_messages_first && disableRecommendations(state.mp_disable_recs);
@@ -578,7 +581,7 @@
     wrapper.innerHTML = `
     <a id="b705b0e5b14434a529cff55fd61131489" href="https://ko-fi.com/patrykjaworski" class="pf_lb2 x9f619 x3nfvp2 xr9ek0c xjpr12u xo237n4 x6pnmvc x7nr27j x12dmmrz xz9dl7a xn6708d xsag5q8 x1ye3gou x80pfx3 x159b3zp x1dn74xm xif99yt x172qv1o x10djquj x1lhsz42 xzauu7c xdoji71 x1dejxi8 x9k3k5o xs3sg5q x11hdxyr x12ldp4w x1wj20lx x1lq5wgf xgqcy7u x30kzoy x9jhf4c" target="_blank">
       <img class="pf_lb3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAACCCAMAAAAZt1gcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADzUExURQAAAP/////////////////////////////////////////////////////////////////////////////////////////////18f/18PHx8f/r4v/q4v/g0+Pj4//Wxf/WxP/Vxf/VxP/Ltv/LtdXV1f/BqP/Bp//Ap/+3mv+3mf+2mcfHx/+ti/+si/+siv+ifP+ie7m5uf+Ybf+Xbaurq/+NX/+NXv+DUJ2dnf95Qv95Qf94Qf9vM/9uM5CQkI+Pj/9kJf9kJP9aFoKCgoGBgXR0dHNzc2ZmZmVlZVhYWFdXV0pKSklJSTw8PC4uLiAgIHPsl2UAAAAXdFJOUwAQIDBAUGBwf4CPkJ+gr7C/wM/Q3+DvWtdpwgAAB+NJREFUeNrE111vmzAUBmAg343boQhxKldyr6i0zZWiVFRjUzfUkNCS1Pb//zXLllZ2bROSNjjPXYCLV+fwOsLbmx90uv3+YDRGCIVhOIm2oF4cbU3CDYTGo1G/1+0E3rEFvcEYhVEMRxNPQjTqdX3vCLrDMIbWTC4Gnc/FQzG0LkL9D87SH8bgykXPO1hwDk5FZ8Fh8zsD99ABGQcxNDhtxiCEU4n6exU4hhOKmsc4hF0IobM0zfK8KDeqrTWzq948lRt5nqcppQmB3QbebtaK4CTNirJiXBwFX1dlnlEMdsj3dkBmOlqsRTt4ldGGTTcHpAUXreJP6SERh3q+SjjAl2TfiEPH+aSK7hWxAypcCJcq0hwxiEBBmHCswKCKzEafg4Jy4RxLQIU8TR8UqTiJPzuP7sgM6F4Bijio7XEimjDGVhvlq0VusyjfrP5hjItGTxikUKtJY0nYc5mnM0oIfBxJ6CzNF88vtZ0292yOcC0Mq8WMwHEls9IacwlS7FvfwtyIl2FoB0lfdtdlZCsy0fNRaFNSCh21DXEiLy6FilFoG9EzMmwOsVM3wjUBB6hWzcIc4rhmhCsMTmBtjIlR58g+QuYmoFnPSj8TA3khExIn4E5eVxZfazITUgYuLYSi0Nb8xbpkBk5hJiSO3685si45BbeoUGTv2uzLp1ZCItAaQsCitHel63ld+Yurz7QEL/n2G4/oubU1yxdxAG+SvXpyfXv/e77x8/7mCt67/H73/9bjj+k11Fhq/8DSytpmpJ7XM/0R0+Xtr7niTs14NX2cSw9fr8ACC4kRUFFrmyO1ypmQaub3MNdML+HVt20+6eEGTETURsRc3nmWlz0vtJ1Ja7CZzg1/yzm75kSKKAz3TGCoKYplQUKTWRxjFLXWKVmpTIBoIgYCWYg9/P9fo2XUQ/H2x/R0k1z4XCYXeTinT3+cbrK8ewnVYLZEbj5oDHG076RzXcjO+b886QtlcHtsQIof7tS/Q0MiU83ah8V8LvsMG46QIGgMQBAUwRAjkUsnu4hxrSGmGJnx6VLF7UBiCCY4l2RHhrAqL0Dwu6Uaii7ySW+YK35HhnEZQxhoNnylNVwpZqLcaIg5rspMZYjDydYQQ+geRP+GOArtmb2K4czB8PeBcRy6G14sXfhGYzhXVMpEa4jz4aWT4SeNYWacDxulZuwfnQxv1IYCNjdwIo1Yv4Th2MnwDgzh78DeKrFcl699GuL2C3cuBf307I0MqR4IId1RBGBIO0ji59MYzkvssfvswHADn8HPOPwVtqnSxtpaGtwO7bF1ht87Gc4kNzXFLoOdo7RQYjCUdhy+dJ8PiSzPJyMOrJXn5basvSM8rylmUsWuMWCsJTMsYF12YMhLsJXvvDvs0DBXn0bHboViZgHzOPW+Yqlh6m9h/sjNjFSLdUiGsC5Cmk+Y5LSAAyAlmUXSDzLhvvYONyUiKFR97Ij9RR3KiaqJuHioavg1NzEpVLuJXnB0V7HXHKXGPqZrBF8DiPT4kjnUbWGJi3vPoxBvUzB7IfsbuHSUt5Yu3dcTBJ97bOCeXrF1KDgwXdpzrwvh6De8hxWJ5A68K502E+4jz1cw6vJ/WD0Ve0SkcDWqXFQy7iHPP2HdopXqlqnHXrBpZH+0FJxy4FErOOIH1CS3ywmOWJe99v2AA7s9gimmHGumG8FlTF2rBLTgrphyTPSpmOWlQlz84iaYqQVXmmdVXcW1mYMiCuIf0L4GqLNDmlQqMBBRcWotaB6GxSLRvjWN4N4M5mzbcrmVCyYaP6wSIjTcXNlvIq6himnC1byWQUEslTkMXRmX95V21Zjk4jPooSDcgWOakeFMNwSvSp3nHufyh1D9iCENmBEpzdaZnlKGzUdipHfGJIRw5jLfMQ/lmX6gDCMCJjOgEzAp58rehGUYZ1TDhjqRZ7jBFMQwmOGO2hBGDCAiTLNtJ2QqaoonNwnXM36AEVgyhJnEr8YITZqTAoKoYXiNJYzgy0uBflTCpjQvIIharmYvCR5DALGQiRzjZyBQrExrbmZ49cO3Q4veFoSwEwfMzHt4+ALjxQ2hCGE3Aj1VrZz2Ad1CFcKQ6TE/hV1xV/AAlcORGNDXSlL4znMqVIf2M1aaoK/YCRept4dxuJx0mAWxapckUlfBZ3jPDKPQNoijPSh6ExTQmClNA0oPFd0Fi9Q6hEQX8+yumAr1lXfMLKkdd5aJYs6rkRXqU3EvYLa0NGfvtV0Ysb+KbcmIWRP0YSgSInd4rU6jBcrEjoa2TfWccRvS7R4Eoe9hzTvZfonY5uXjtzb0tuqsEkFPqkiIVcrNJPOtRfPNtp5BEZK9yhJtdudbYwOYd1llGrBpklo+zbMReCYjak8buoMhq04LFNWI5+1/CLHXsE7gm26VCbpw5+YITvg15kTYg68JefzCJU7V7oo8dwzjIoHelkdF9zDuRhwE/SvydFfVL+McUuxTkch2Xvz6deaJ4D3OxBsHP+wOuhNzIMl1gcT2NNANmU8afY6k+Wd5ZWN7GmkywuNgREaTx12hkvtjMx9xAIeg/0zjGpzli8WGWCzyCS3VyLuAEd7D6E6vzk5F5MOxHwfsdIRN3//8xz9hy82vxk5P2OhVzm/IXol6m9vTaQTsFQmjjp0ehu/0BPXWF+WS26L29BtYxm2d5nm7GYXs7TmrRXGz1Tmg3WrFUf0sYP8//gQ2fZNz60hZCwAAAABJRU5ErkJggg==" alt="">
-      <div class="x6s0dn4 x9f619 xxk0z11 x6ikm8r xeq5yr9 x1swvt13 x1s85apg xzzcqpx" style="opacity: 1;"><div style="width: 100%;"><div class="" style="width: 100%;"><span class="x1lliihq x1plvlek xryxfnj x1n2onr6 x1ji0vk5 x18bv5gf x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be xo1l8bm x5n08af x1tu3fi x3x7a5m x10wh9bi x1wdrske x8viiok x18hxmgj" dir="auto" style="----base-line-clamp-line-height: 20px; --lineHeight: 20px;"><span class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft">Coffee</span></span></div></div></div>
+      <div class="x6s0dn4 x9f619 xxk0z11 x6ikm8r xeq5yr9 x1swvt13 x1s85apg text_donate_lw34 xzzcqpx" style="opacity: 1;"><div style="width: 100%;"><div class="" style="width: 100%;"><span class="x1lliihq x1plvlek xryxfnj x1n2onr6 x1ji0vk5 x18bv5gf x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xl565be xo1l8bm x5n08af x1tu3fi x3x7a5m x10wh9bi x1wdrske x8viiok x18hxmgj" dir="auto" style="----base-line-clamp-line-height: 20px; --lineHeight: 20px;"><span class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft">Support IGPlus!</span></span></div></div></div>
     </a>
 
     
@@ -588,6 +591,28 @@
           display: block!important;
         }
       }
+
+    @keyframes anim_l3 {
+      0% {
+        transform: translateX(-10px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    #b705b0e5b14434a529cff55fd61131489 {
+    border-radius: 8px!important;
+    }
+
+    .x78zum5.x1q0g3np.x1gvbg2u.x1o0tod.x1qughib.x10l6tqk.x13vifvy.x1vjfegm.xleuxlb.xxfw5ft.x1mh60rb.x1f91t4q:hover
+    .text_donate_lw34 {
+      display: flex !important;
+      animation: anim_l3 80ms linear both 100ms;
+    }
+
       .pf_lb2 {
         display: flex;
         align-items: center;
@@ -683,7 +708,7 @@
 
 
     // APPEAR_TIMEOUT = 2000;
-    MAX_CLOSE_COUNT = 500;
+    // MAX_CLOSE_COUNT = 500;
 
 
     const supported_languages = ["en", "de", "es", "pl", "uk", "sv", "ar", "be", "ru", "fr", "hi", "ja", "nl", "zh", "pt"];
