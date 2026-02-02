@@ -190,6 +190,9 @@
 },
 "mi_18": {
   "message": "Ocultar botón de Threads"
+},
+"mi_auto_enable": {
+  "message": "Activar siempre la extensión al abrir el navegador"
 }
 
 }

@@ -190,5 +190,8 @@
   },
   "mi_18": {
     "message": "Hide Threads Button"
+  },
+  "mi_auto_enable": {
+    "message": "Always enable extension when browser opens"
   }
 }

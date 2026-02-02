@@ -27,6 +27,7 @@ const initialState = {
   nav_to_messages_first: false,
   disable_comments: false,
   disable_threads: false,
+  auto_enable_on_startup: false,
   theme: "default",
   font: "default",
   timestamp: Date.now()
@@ -42,6 +43,17 @@ function initStateIfNotExist() {
 }
 
 initStateIfNotExist();
+
+// Auto-enable extension on browser startup if option is enabled
+browser_cr.runtime.onStartup.addListener(function () {
+  browser_cr.storage.local.get("formState", (result) => {
+    if (result.formState && result.formState.auto_enable_on_startup) {
+      // Force enable extension on startup
+      const updatedState = { ...result.formState, disabled: false };
+      browser_cr.storage.local.set({ formState: updatedState });
+    }
+  });
+});
 
 if (!chrome)
   chrome = browser;

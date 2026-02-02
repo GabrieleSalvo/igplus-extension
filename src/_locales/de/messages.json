@@ -190,5 +190,8 @@
 	},
   "mi_18": {
     "message": "Schaltfläche \"Threads\" ausblenden"
+  },
+  "mi_auto_enable": {
+    "message": "Erweiterung beim Browserstart immer aktivieren"
   }
 }

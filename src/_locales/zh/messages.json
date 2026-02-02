@@ -190,5 +190,8 @@
 	},
 	"mi_18": {
 		"message": "隐藏 Threads 按钮"
+	},
+	"mi_auto_enable": {
+		"message": "打开浏览器时始终启用扩展程序"
 	}
 }

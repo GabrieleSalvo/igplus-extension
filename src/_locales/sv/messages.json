@@ -190,5 +190,8 @@
 	},
 	"mi_18": {
 		"message": "Dölj Threads-knappen"
+	},
+	"mi_auto_enable": {
+		"message": "Aktivera alltid tillägget när webbläsaren öppnas"
 	}
 }

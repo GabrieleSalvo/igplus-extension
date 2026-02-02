@@ -190,5 +190,8 @@
 	},
 	"mi_18": {
 		"message": "Threads ボタンを非表示"
+	},
+	"mi_auto_enable": {
+		"message": "ブラウザを開いたときに常に拡張機能を有効にする"
 	}
 }
