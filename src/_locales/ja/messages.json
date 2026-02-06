@@ -63,7 +63,7 @@
 		"message": "メインページのおすすめを無効にする"
 	},
 	"mi_9": {
-		"message": "フィードを無効にする（実験的）"
+		"message": "フィード投稿の上限:"
 	},
 	"mi_10": {
 		"message": "カラーパレット / フォント:"
@@ -193,5 +193,14 @@
 	},
 	"mi_auto_enable": {
 		"message": "ブラウザを開いたときに常に拡張機能を有効にする"
+	},
+	"mi_feed_unlimited": {
+		"message": "無制限"
+	},
+	"mi_feed_5": {
+		"message": "5件の投稿"
+	},
+	"mi_feed_disabled": {
+		"message": "無効"
 	}
 }

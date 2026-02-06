@@ -63,7 +63,7 @@
 		"message": "Wyłącz rekomendacje na st. głównej"
 	},
 	"mi_9": {
-		"message": "Wyłącz Feed / Kanał aktualności (beta)"
+		"message": "Limit postów w kanale:"
 	},
 	"mi_10": {
 		"message": "Paleta kolorów / czcionka:"
@@ -193,5 +193,14 @@
 	},
 	"mi_auto_enable": {
 		"message": "Zawsze włączaj rozszerzenie przy uruchomieniu przeglądarki"
+	},
+	"mi_feed_unlimited": {
+		"message": "Bez limitu"
+	},
+	"mi_feed_5": {
+		"message": "5 postów"
+	},
+	"mi_feed_disabled": {
+		"message": "Wyłączony"
 	}
 }

@@ -262,6 +262,43 @@
 
 
     /**
+     * Applies feed post limit using dynamic CSS injection.
+     * Supports "unlimited", "5", and "0" (fully disabled).
+     * Uses :nth-child(n+X) selectors for partial limits.
+     * @param {string} limit - The feed limit value
+     */
+    function applyFeedLimit(limit) {
+      // Remove any existing feed limit styles
+      document.getElementById("mp_disable_feed")?.remove();
+      document.getElementById("mp_feed_limit")?.remove();
+
+      if (limit === "unlimited" || !limit) return;
+
+      if (limit === "0") {
+        // Full disable: use the existing mp_disable_feed.css
+        setOrRemoveStylesOfItem("/assets/graphs/mp_disable_feed.css", true, "mp_disable_feed");
+        return;
+      }
+
+      // For numeric limits (5, 10, 15), inject dynamic CSS
+      const num = parseInt(limit, 10);
+      if (isNaN(num) || num <= 0) return;
+
+      const nth = num + 1;
+      const css = [
+        `[role="main"] article:nth-child(n+${nth}) { display: none !important; }`,
+        `main article[data-visualcompletion]:nth-child(n+${nth}) { display: none !important; }`,
+        `[role="main"] > div > div > div:nth-child(n+${nth}) { display: none !important; }`,
+      ].join("\n");
+
+      const style = document.createElement("style");
+      style.textContent = css;
+      style.setAttribute("id", "mp_feed_limit");
+      document.head.appendChild(style);
+    }
+
+
+    /**
      * Updates DOM based on the user state, and applies all the corresponding changes without any unnecessary mutations.
      * All of the methods and functions it contains, have good, easy to understand & self explanatory namings.
      * 
@@ -273,7 +310,6 @@
       browser_cr.storage.local.get("formState", (result) => {
         const state = result.formState.disabled ? { a: true } : result.formState;
         const GRAPHS_SETTERS = [
-          "mp_disable_feed",
           "disable_comments",
           "disable_notes",
           "block_images",
@@ -288,6 +324,9 @@
           let url = `/assets/graphs/${GRAPH}.css`;
           setOrRemoveStylesOfItem(url, state[GRAPH], GRAPH)
         })
+
+        // Apply feed post limit (unlimited / 5 / 0)
+        applyFeedLimit(state.mp_feed_limit || "unlimited");
 
         toggleClassicMode("/assets/graphs/classic_mode.css", state.classic_mode);
         toggleVanity(state.disable_vanity);

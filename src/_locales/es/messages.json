@@ -63,7 +63,7 @@
     "message": "Desactivar recomendaciones"
   },
   "mi_9": {
-    "message": "Desactivar Feed (experimental)"
+    "message": "Límite de publicaciones del feed:"
   },
   "mi_10": {
     "message": "Paleta de colores / fuente:"
@@ -193,6 +193,15 @@
 },
 "mi_auto_enable": {
   "message": "Activar siempre la extensión al abrir el navegador"
+},
+"mi_feed_unlimited": {
+  "message": "Ilimitado"
+},
+"mi_feed_5": {
+  "message": "5 publicaciones"
+},
+"mi_feed_disabled": {
+  "message": "Desactivado"
 }
 
 }

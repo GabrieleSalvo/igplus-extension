@@ -63,7 +63,7 @@
 		"message": "Désactiver les recommandations sur la page principale"
 	},
 	"mi_9": {
-		"message": "Désactiver le Fil (expérimental)"
+		"message": "Limite de publications du fil :"
 	},
 	"mi_10": {
 		"message": "Palette de couleurs / police :"
@@ -193,5 +193,14 @@
 	},
 	"mi_auto_enable": {
 		"message": "Toujours activer l'extension à l'ouverture du navigateur"
+	},
+	"mi_feed_unlimited": {
+		"message": "Illimité"
+	},
+	"mi_feed_5": {
+		"message": "5 publications"
+	},
+	"mi_feed_disabled": {
+		"message": "Désactivé"
 	}
 }

@@ -63,7 +63,7 @@
     "message": "Disable recommendations (Main page)"
   },
   "mi_9": {
-    "message": "Disable Feed (experimental)"
+    "message": "Feed posts limit:"
   },
   "mi_10": {
     "message": "Color palette / font:"
@@ -193,5 +193,14 @@
   },
   "mi_auto_enable": {
     "message": "Always enable extension when browser opens"
+  },
+  "mi_feed_unlimited": {
+    "message": "Unlimited"
+  },
+  "mi_feed_5": {
+    "message": "5 posts"
+  },
+  "mi_feed_disabled": {
+    "message": "Disabled"
   }
 }

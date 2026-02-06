@@ -63,7 +63,7 @@
 		"message": "禁用主页上的推荐内容"
 	},
 	"mi_9": {
-		"message": "禁用动态（实验性）"
+		"message": "动态帖子限制:"
 	},
 	"mi_10": {
 		"message": "配色方案/字体："
@@ -193,5 +193,14 @@
 	},
 	"mi_auto_enable": {
 		"message": "打开浏览器时始终启用扩展程序"
+	},
+	"mi_feed_unlimited": {
+		"message": "无限制"
+	},
+	"mi_feed_5": {
+		"message": "5 篇帖子"
+	},
+	"mi_feed_disabled": {
+		"message": "已禁用"
 	}
 }

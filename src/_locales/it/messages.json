@@ -63,7 +63,7 @@
     "message": "Disabilita raccomandazioni (Pagina principale)"
   },
   "mi_9": {
-    "message": "Disabilita Feed (sperimentale)"
+    "message": "Limite post del feed:"
   },
   "mi_10": {
     "message": "Tavolozza colori / carattere:"
@@ -193,5 +193,14 @@
   },
   "mi_auto_enable": {
     "message": "Abilita sempre l'estensione all'apertura del browser"
+  },
+  "mi_feed_unlimited": {
+    "message": "Illimitato"
+  },
+  "mi_feed_5": {
+    "message": "5 post"
+  },
+  "mi_feed_disabled": {
+    "message": "Disabilitato"
   }
 }

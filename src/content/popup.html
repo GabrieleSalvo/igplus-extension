@@ -96,10 +96,13 @@
           <span data-i18n="mi_18">Hide Threads Button</span>
         </label>
 
-        <label class="ch_ip">
-          <input type="checkbox" name="mp_disable_feed" />
-          <span class="ch_sp"></span>
-          <span data-i18n="mi_9">Disable Feed (experimental)</span>
+        <label class="ch_lp">
+          <span class="label" data-i18n="mi_9">Feed posts limit:</span>
+          <select name="mp_feed_limit" id="mp_feed_limit">
+            <option value="unlimited" data-i18n="mi_feed_unlimited">Unlimited</option>
+            <option value="5" data-i18n="mi_feed_5">5 posts</option>
+            <option value="0" data-i18n="mi_feed_disabled">Disabled</option>
+          </select>
         </label>
     
 

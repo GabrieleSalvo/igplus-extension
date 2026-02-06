@@ -63,7 +63,7 @@
 		"message": "Empfehlungen auf der Startseite ausschalten"
 	},
 	"mi_9": {
-		"message": "Feed deaktivieren (experimentell)"
+		"message": "Feed-Beitragslimit:"
 	},
 	"mi_10": {
 		"message": "Farbpalette / Schrift:"
@@ -193,5 +193,14 @@
   },
   "mi_auto_enable": {
     "message": "Erweiterung beim Browserstart immer aktivieren"
+  },
+  "mi_feed_unlimited": {
+    "message": "Unbegrenzt"
+  },
+  "mi_feed_5": {
+    "message": "5 Beiträge"
+  },
+  "mi_feed_disabled": {
+    "message": "Deaktiviert"
   }
 }

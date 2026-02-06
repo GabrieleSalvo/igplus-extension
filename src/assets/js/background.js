@@ -28,6 +28,7 @@ const initialState = {
   disable_comments: false,
   disable_threads: false,
   auto_enable_on_startup: false,
+  mp_feed_limit: "unlimited",
   theme: "default",
   font: "default",
   timestamp: Date.now()
@@ -44,6 +45,22 @@ function initStateIfNotExist() {
 
 initStateIfNotExist();
 
+// Migrate old mp_disable_feed boolean to new mp_feed_limit string
+function migrateFeedState() {
+  browser_cr.storage.local.get("formState", (result) => {
+    if (result.formState && typeof result.formState.mp_disable_feed === "boolean") {
+      const migrated = { ...result.formState };
+      migrated.mp_feed_limit = migrated.mp_disable_feed ? "0" : "unlimited";
+      delete migrated.mp_disable_feed;
+      browser_cr.storage.local.set({ formState: migrated });
+    } else if (result.formState && !result.formState.mp_feed_limit) {
+      browser_cr.storage.local.set({ formState: { ...result.formState, mp_feed_limit: "unlimited" } });
+    }
+  });
+}
+
+migrateFeedState();
+
 // Auto-enable extension on browser startup if option is enabled
 browser_cr.runtime.onStartup.addListener(function () {
   browser_cr.storage.local.get("formState", (result) => {
@@ -53,12 +70,14 @@ browser_cr.runtime.onStartup.addListener(function () {
       browser_cr.storage.local.set({ formState: updatedState });
     }
   });
+  migrateFeedState();
 });
 
 if (!chrome)
   chrome = browser;
 
 browser_cr.runtime.onInstalled.addListener(function (details) {
+  migrateFeedState();
   if (details.reason === 'install' || details.reason === 'update') {
     chrome.storage.local.get('welcomePageDisplayed', function (data) {
       if (!data.welcomePageDisplayed && details.reason === 'install') {

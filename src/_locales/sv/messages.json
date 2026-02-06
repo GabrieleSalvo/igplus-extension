@@ -63,7 +63,7 @@
 		"message": "Inaktivera rekommendationer på huvudsidan"
 	},
 	"mi_9": {
-		"message": "Inaktivera feed-flödet (experimentellt)"
+		"message": "Gräns för flödesinlägg:"
 	},
 	"mi_10": {
 		"message": "Färgpalett / typsnitt:"
@@ -193,5 +193,14 @@
 	},
 	"mi_auto_enable": {
 		"message": "Aktivera alltid tillägget när webbläsaren öppnas"
+	},
+	"mi_feed_unlimited": {
+		"message": "Obegränsat"
+	},
+	"mi_feed_5": {
+		"message": "5 inlägg"
+	},
+	"mi_feed_disabled": {
+		"message": "Inaktiverad"
 	}
 }
